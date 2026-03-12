@@ -1,82 +1,11 @@
- <style>
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: #1f2937;
-            background-color: #f9fafb;
-            padding: 20px;
-            max-width: 900px;
-            margin: 40px auto;
-        }
-
-        .resume-card {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-            padding: 48px;
-            margin-top: 0;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 40px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .header-text { 
-            flex: 1; 
-            min-width: 300px; 
-        }
-
-        .name {
-            color: #111827;
-            font-size: 2.75em;
-            font-weight: 800;
-            margin-bottom: 8px;
-            line-height: 1.1;
-        }
-
-        .title {
-            color: #3a3f69;
-            font-size: 1.1em;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .tagline {
-            color: #6b7280;
-            font-size: 1.15em;
-            margin-bottom: 32px;
-            font-weight: 400;
-        }
-
-        .header-photo {
-            flex: 0 0 200px;
-        }
-
-        .header-photo img {
-            width: 100%;
-            max-width: 200px;
-            border-radius: 12px;
-            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.12);
-        }
-
-        /* ===== КОНТАКТНАЯ ПЛАШКА С ГОРОДОМ ПОСЕРЕДИНЕ (Flexbox) ===== */
-/* ===== УПРОЩЕННАЯ И ИСПРАВЛЕННАЯ КОНТАКТНАЯ ПЛАШКА ===== */
+/* ===== BASE RESET ===== */
 * { 
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
 }
+
+html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -86,14 +15,51 @@ body {
     padding: 20px;
     max-width: 900px;
     margin: 40px auto;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* ===== DARK MODE ===== */
+body.dark-mode {
+    background-color: #111827;
+    color: #f9fafb;
+}
+
+body.dark-mode .resume-card { background: #1f2937; }
+body.dark-mode .contact-bar,
+body.dark-mode .metrics-grid,
+body.dark-mode .summary { background: #1f2937; border-color: #374151; }
+body.dark-mode .metric-value { color: #f9fafb; }
+body.dark-mode .metric-label { color: #d1d5db; }
+body.dark-mode .skill-card { background: #1f2937; border-top-color: #60a5fa; }
+body.dark-mode .skill-card h3 { color: #f3f4f6; }
+body.dark-mode .skill-card li { color: #d1d5db; }
+body.dark-mode .job { border-bottom-color: #374151; }
+body.dark-mode .job-title { color: #f9fafb; }
+body.dark-mode .job-meta { color: #9ca3af; }
+body.dark-mode .job li { color: #d1d5db; }
+body.dark-mode .tech-tag { background: #374151; border-color: #4b5563; color: #f3f4f6; }
+body.dark-mode .tech-tag:hover { background: #3b82f6; color: white; }
+body.dark-mode footer { border-top-color: #374151; color: #9ca3af; }
+body.dark-mode .name { color: #f9fafb; }
+body.dark-mode .title { color: #9ca3af; }
+body.dark-mode .tagline { color: #d1d5db; }
+body.dark-mode .section-title { color: #f9fafb; border-bottom-color: #374151; }
+body.dark-mode .contact-link,
+body.dark-mode a { color: #f3f4f6; }
+body.dark-mode .contact-link:hover,
+body.dark-mode a:hover { color: #60a5fa; }
+body.dark-mode .contact-text { color: #d1d5db; }
+body.dark-mode #theme-toggle { background: #374151; color: #f9fafb; }
+body.dark-mode #theme-toggle:hover { background: #4b5563; }
+
+/* ===== LAYOUT ===== */
 .resume-card {
     background: white;
     border-radius: 16px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
     padding: 48px;
     margin-top: 0;
+    transition: background-color 0.3s ease;
 }
 
 .header {
@@ -105,10 +71,7 @@ body {
     flex-wrap: wrap;
 }
 
-.header-text { 
-    flex: 1; 
-    min-width: 300px; 
-}
+.header-text { flex: 1; min-width: 300px; }
 
 .name {
     color: #111827;
@@ -132,10 +95,7 @@ body {
     font-weight: 400;
 }
 
-.header-photo {
-    flex: 0 0 200px;
-}
-
+.header-photo { flex: 0 0 200px; }
 .header-photo img {
     width: 100%;
     max-width: 200px;
@@ -143,188 +103,167 @@ body {
     box-shadow: 0 6px 16px rgba(59, 130, 246, 0.12);
 }
 
-/* ===== КОНТАКТНАЯ ПЛАШКА ===== */
-.contact-bar {
-display: grid;
-gap: 12px;
-background: #f8fafc;
-padding: 22px;
-border-radius: 12px;
-margin-top: 30px;
-border: 1px solid #e5e7eb;
-width: 100%;
+/* ===== THEME TOGGLE BUTTON ===== */
+#theme-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1000;
+    padding: 8px 12px;
+    background: #e5e7eb;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background 0.2s;
+}
+#theme-toggle:hover { background: #d1d5db; }
+body.dark-mode #theme-toggle { background: #374151; color: #f9fafb; }
+body.dark-mode #theme-toggle:hover { background: #4b5563; }
+
+/* ===== METRICS GRID (NEW) ===== */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin: 24px 0 32px;
+    padding: 16px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.metric { text-align: center; padding: 8px; }
+.metric-value {
+    display: block;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #111827;
+}
+.metric-label {
+    font-size: 0.85em;
+    color: #6b7280;
 }
 
-/* ДЕСКТОП ВЕРСИЯ (900px+) - 3x3 сетка */
-/* Десктоп (900px+) */
-@media (min-width: 901px) {
+/* ===== CONTACT BAR ===== */
 .contact-bar {
-grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    gap: 12px;
+    background: #f8fafc;
+    padding: 22px;
+    border-radius: 12px;
+    margin-top: 30px;
+    border: 1px solid #e5e7eb;
+    width: 100%;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Desktop (900px+) */
+@media (min-width: 901px) {
+    .contact-bar {
+        grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto auto auto;
     }
-
-    /* Верхний ряд: Telegram, Email, Телефон */
-    .contact-item:nth-child(1) { grid-column: 1; grid-row: 1; } /* Telegram */
-    .contact-item:nth-child(2) { grid-column: 2; grid-row: 1; } /* Email */
-    .contact-item:nth-child(3) { grid-column: 3; grid-row: 1; } /* Телефон */
-
-    /* Средний ряд: Полная занятость, Удалённо, СПб */
-    .contact-item:nth-child(4) { grid-column: 1; grid-row: 2; } /* Полная занятость */
-    .contact-item:nth-child(5) { grid-column: 2; grid-row: 2; } /* Удалённо/гибрид */
-    .contact-item-city { grid-column: 3; grid-row: 2; } /* СПб */
-
-    /* Нижний ряд: PDF по запросу (на всю ширину) */
-    .contact-item-download { 
-        grid-column: 1 / -1; 
-        grid-row: 3;
-}
+    .contact-item:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .contact-item:nth-child(2) { grid-column: 2; grid-row: 1; }
+    .contact-item:nth-child(3) { grid-column: 3; grid-row: 1; }
+    .contact-item:nth-child(4) { grid-column: 1; grid-row: 2; }
+    .contact-item:nth-child(5) { grid-column: 2; grid-row: 2; }
+    .contact-item-city { grid-column: 3; grid-row: 2; }
+    .contact-item-download { grid-column: 1 / -1; grid-row: 3; }
 }
 
-/* ПЛАНШЕТ ВЕРСИЯ (601px - 900px) - 2x4 сетка */
-/* Планшет (601px - 900px) */
+/* Tablet (601px - 900px) */
 @media (min-width: 601px) and (max-width: 900px) {
-.contact-bar {
-grid-template-columns: repeat(2, 1fr);
+    .contact-bar {
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto auto auto auto;
     }
-
-    /* Верхний ряд: Telegram, Email */
-    .contact-item:nth-child(1) { grid-column: 1; grid-row: 1; } /* Telegram */
-    .contact-item:nth-child(2) { grid-column: 2; grid-row: 1; } /* Email */
-
-    /* Второй ряд: Телефон, Полная занятость */
-    .contact-item:nth-child(3) { grid-column: 1; grid-row: 2; } /* Телефон */
-    .contact-item:nth-child(4) { grid-column: 2; grid-row: 2; } /* Полная занятость */
-
-    /* Третий ряд: Удалённо, СПб */
-    .contact-item:nth-child(5) { grid-column: 1; grid-row: 3; } /* Удалённо/гибрид */
-    .contact-item-city { grid-column: 2; grid-row: 3; } /* СПб */
-
-    /* Нижний ряд: PDF (на всю ширину) */
-    .contact-item-download { 
-        grid-column: 1 / -1; 
-        grid-row: 4;
-}
+    .contact-item:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .contact-item:nth-child(2) { grid-column: 2; grid-row: 1; }
+    .contact-item:nth-child(3) { grid-column: 1; grid-row: 2; }
+    .contact-item:nth-child(4) { grid-column: 2; grid-row: 2; }
+    .contact-item:nth-child(5) { grid-column: 1; grid-row: 3; }
+    .contact-item-city { grid-column: 2; grid-row: 3; }
+    .contact-item-download { grid-column: 1 / -1; grid-row: 4; }
 }
 
-/* МОБИЛЬНАЯ ВЕРСИЯ (до 600px) - вертикальный список */
-/* Мобильные (до 600px) */
+/* Mobile (up to 600px) */
 @media (max-width: 600px) {
-.contact-bar {
-grid-template-columns: 1fr;
+    .contact-bar {
+        grid-template-columns: 1fr;
         grid-template-rows: auto;
+    }
+    .contact-item:nth-child(1) { order: 1; }
+    .contact-item:nth-child(2) { order: 2; }
+    .contact-item:nth-child(3) { order: 3; }
+    .contact-item:nth-child(4) { order: 4; }
+    .contact-item:nth-child(5) { order: 5; }
+    .contact-item-city { order: 6; }
+    .contact-item-download { order: 7; }
 }
 
-    /* Все плашки в одну колонку, порядок как нужно */
-    .contact-item:nth-child(1) { order: 1; } /* Telegram */
-    .contact-item:nth-child(2) { order: 2; } /* Email */
-    .contact-item:nth-child(3) { order: 3; } /* Телефон */
-    .contact-item:nth-child(4) { order: 4; } /* Полная занятость */
-    .contact-item:nth-child(5) { order: 5; } /* Удалённо/гибрид */
-    .contact-item-city { order: 6; } /* СПб */
-    .contact-item-download { order: 7; } /* PDF */
-}
-
-/* ОБЩИЕ СТИЛИ ДЛЯ ПЛАШЕК */
 .contact-item {
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 10px;
-padding: 14px 12px;
-background: white;
-border-radius: 10px;
-border: 1px solid #e5e7eb;
-transition: all 0.2s ease;
-text-align: center;
-min-height: 54px;
-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 12px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s ease;
+    text-align: center;
+    min-height: 54px;
+    width: 100%;
 }
 
 .contact-item:hover {
-transform: translateY(-2px);
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-border-color: #3b82f6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: #3b82f6;
 }
 
-/* Особый стиль для плашки СПб */
 .contact-item-city {
-border-color: #3b82f6;
-background: #f0f9ff;
-    border-color: #e5e7eb;
-    background: white;
-font-weight: 600;
+    border-color: #3b82f6;
+    background: #f0f9ff;
+    font-weight: 600;
 }
 
-/* Кнопка PDF */
 .contact-item-download {
-background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-border-color: #3b82f6;
-font-weight: 600;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-color: #3b82f6;
+    font-weight: 600;
 }
-
 .contact-item-download:hover {
-background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+    background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
 }
 
 .contact-icon {
-font-size: 1.1em;
-flex-shrink: 0;
-width: 22px;
-text-align: center;
+    font-size: 1.1em;
+    flex-shrink: 0;
+    width: 22px;
+    text-align: center;
 }
 
 .contact-link, a {
-font-size: 0.95em;
-font-weight: 500;
-color: #1f2937;
-text-decoration: none;
-transition: color 0.2s;
-white-space: nowrap;
+    font-size: 0.95em;
+    font-weight: 500;
+    color: #1f2937;
+    text-decoration: none;
+    transition: color 0.2s;
+    white-space: nowrap;
 }
-
-.contact-link:hover, a:hover {
-color: #3b82f6;
-}
+.contact-link:hover, a:hover { color: #3b82f6; }
 
 .contact-text {
-font-size: 0.9em;
-font-weight: 500;
-color: #4b5563;
-white-space: nowrap;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #4b5563;
+    white-space: nowrap;
 }
 
-        .summary {
-            background: #f0f9ff;
-            padding: 28px;
-            border-radius: 12px;
-            margin-bottom: 48px;
-            color: #075985;
-            border-left: 5px solid #3b82f6;
-            font-weight: 400;
-        }
-/* Адаптация для мобильных (оставь этот) */
-/* Упрощаем расположение контактов */
-.contact-item:nth-child(1) { grid-column: 1; } /* Telegram */
-.contact-item:nth-child(2) { grid-column: 2; } /* Email */
-.contact-item:nth-child(3) { grid-column: 3; } /* Телефон */
-.contact-item:nth-child(4) { grid-column: 1; } /* Полная занятость */
-.contact-item:nth-child(5) { grid-column: 2; } /* Удалённо/гибрид */
-.contact-item:nth-child(6) { grid-column: 3; } /* СПб */
-.contact-item-download { grid-column: 1 / -1; } /* PDF */
-
-/* На мобилках делаем 1 колонку */
-@media (max-width: 600px) {
-    .contact-item:nth-child(1),
-    .contact-item:nth-child(2),
-    .contact-item:nth-child(3),
-    .contact-item:nth-child(4),
-    .contact-item:nth-child(5),
-    .contact-item:nth-child(6) {
-        grid-column: 1;
-    }
-}
-
+/* ===== SECTIONS ===== */
 .summary {
     background: #f0f9ff;
     padding: 28px;
@@ -333,6 +272,7 @@ white-space: nowrap;
     color: #075985;
     border-left: 5px solid #3b82f6;
     font-weight: 400;
+    transition: background-color 0.3s ease, border-left-color 0.3s ease;
 }
 
 .section-title {
@@ -357,32 +297,25 @@ white-space: nowrap;
     border-radius: 10px;
     border-top: 4px solid #3b82f6;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s ease;
 }
-
 .skill-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.07);
 }
-
 .skill-card h3 {
     color: #1f2937;
     margin-bottom: 16px;
     font-size: 1.2em;
     font-weight: 600;
 }
-
-.skill-card ul { 
-    list-style: none; 
-}
-
+.skill-card ul { list-style: none; }
 .skill-card li {
     margin-bottom: 8px;
     padding-left: 24px;
     position: relative;
     color: #4b5563;
 }
-
 .skill-card li:before {
     content: '▸';
     color: #60a5fa;
@@ -390,7 +323,6 @@ white-space: nowrap;
     position: absolute;
     left: 0;
 }
-
 .skill-card:nth-child(1) { border-top-color: #3b82f6; }
 .skill-card:nth-child(2) { border-top-color: #10b981; }
 .skill-card:nth-child(3) { border-top-color: #8b5cf6; }
@@ -400,11 +332,9 @@ white-space: nowrap;
     margin-bottom: 40px;
     padding-bottom: 32px;
     border-bottom: 1px solid #e5e7eb;
+    transition: border-bottom-color 0.3s ease;
 }
-
-.job:last-child { 
-    border-bottom: none; 
-}
+.job:last-child { border-bottom: none; }
 
 .job-title {
     color: #111827;
@@ -412,18 +342,13 @@ white-space: nowrap;
     margin-bottom: 6px;
     font-weight: 700;
 }
-
 .job-meta {
     color: #6b7280;
     margin-bottom: 18px;
     font-weight: 500;
     font-size: 0.95em;
 }
-
-.job ul { 
-    padding-left: 22px; 
-}
-
+.job ul { padding-left: 22px; }
 .job li {
     margin-bottom: 10px;
     color: #4b5563;
@@ -456,8 +381,9 @@ footer {
     font-size: 0.9em;
     font-weight: 500;
     transition: all 0.2s;
+    display: inline-block;
+    margin: 4px;
 }
-
 .tech-tag:hover {
     background: #3b82f6;
     color: white;
@@ -465,154 +391,119 @@ footer {
     transform: translateY(-2px);
 }
 
-/* Адаптация для мобильных */
-@media (max-width: 768px) {
-body { 
-padding: 16px; 
-margin: 20px auto; 
+/* ===== ANIMATION CLASSES ===== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.resume-card { 
-padding: 32px 24px; 
-}
-
-.header { 
-flex-direction: column-reverse; 
-gap: 32px; 
-}
-
-.header-photo { 
-align-self: center; 
-}
-
-.name { 
-font-size: 2.3em; 
-}
-
-.contact-bar {
-grid-template-columns: repeat(2, 1fr);
-gap: 10px;
-padding: 18px;
-}
-
-.contact-item-download {
-grid-column: 1 / -1;
-margin-top: 4px;
-}
-
-.skills-grid { 
-grid-template-columns: 1fr; 
-}
-}
-
-/* Очень маленькие экраны (оставь этот) */
-/* Очень маленькие экраны */
-@media (max-width: 480px) {
-.contact-bar {
-grid-template-columns: 1fr;
-}
-
-.contact-item {
-padding: 12px;
-}
-
-.contact-text {
-font-size: 0.85em;
-}
-}
-/* ===== ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА ===== */
-/* ===== СИЛЬНЫЙ ФИКС ДЛЯ ПЕРЕКЛЮЧАТЕЛЯ ===== */
+/* ===== LANG SWITCHER ===== */
 .lang-switcher {
-    /* Гарантируем горизонтальное расположение */
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
-    justify-content: center !important;
-    
-    position: absolute !important;
-    top: 20px !important;
-    right: 20px !important;
-    
-    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%) !important;
-    padding: 4px !important;
-    border-radius: 12px !important;
-    z-index: 100 !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    
-    /* Гарантируем размер */
-    width: auto !important;
-    height: auto !important;
-    min-width: unset !important;
-    max-width: none !important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    padding: 4px;
+    border-radius: 12px;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 .lang-btn {
-    display: inline-block !important;
-    float: none !important;
-    position: static !important;
-    
-    padding: 8px 16px !important;
-    background: white !important;
-    color: #64748b !important;
-    text-decoration: none !important;
-    border-radius: 8px !important;
-    font-weight: 600 !important;
-    font-size: 0.85em !important;
-    border: 1px solid transparent !important;
-    
-    /* Гарантируем что кнопки будут рядом */
-    margin: 0 !important;
-    margin-right: 2px !important;
+    display: inline-block;
+    padding: 8px 16px;
+    background: white;
+    color: #64748b;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85em;
+    border: 1px solid transparent;
+    margin: 0;
+    margin-right: 2px;
+    transition: all 0.2s ease;
 }
-
-.lang-btn:last-child {
-    margin-right: 0 !important;
-}
-
+.lang-btn:last-child { margin-right: 0; }
 .lang-btn:hover {
-    background: #f8fafb !important;
-    color: #3b82f6 !important;
-    transform: translateY(-1px) !important;
+    background: #f8fafb;
+    color: #3b82f6;
+    transform: translateY(-1px);
 }
-
 .lang-btn.active {
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
-    color: white !important;
-    box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* iPhone 13 Pro: 390x844, но учитываем Safe Area */
-@media (max-width: 428px) { /* Макс ширина iPhone */
-    .lang-switcher {
-        top: 15px !important;
-        right: 15px !important;
-        padding: 3px !important;
-    }
-    
-    .lang-btn {
-        padding: 6px 12px !important;
-        font-size: 0.8em !important;
-    }
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    body { padding: 16px; margin: 20px auto; }
+    .resume-card { padding: 32px 24px; }
+    .header { flex-direction: column-reverse; gap: 32px; }
+    .header-photo { align-self: center; }
+    .name { font-size: 2.3em; }
+    .contact-bar { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 18px; }
+    .contact-item-download { grid-column: 1 / -1; margin-top: 4px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .lang-switcher { position: static; margin-bottom: 20px; justify-content: center; }
 }
 
-/* Для совсем тесных ситуаций */
+@media (max-width: 600px) {
+    .contact-bar { grid-template-columns: 1fr; }
+    .contact-item { padding: 12px; }
+    .contact-text { font-size: 0.85em; }
+}
+
+@media (max-width: 480px) {
+    .contact-bar { grid-template-columns: 1fr; }
+    .contact-item { padding: 12px; }
+    .contact-text { font-size: 0.85em; }
+}
+
+@media (max-width: 428px) {
+    .lang-switcher { top: 15px; right: 15px; padding: 3px; }
+    .lang-btn { padding: 6px 12px; font-size: 0.8em; }
+}
+
 @media (max-width: 360px) {
     .lang-switcher {
-        top: 12px !important;
-        right: 12px !important;
-        transform: scale(0.9) !important;
-        transform-origin: top right !important;
+        top: 12px;
+        right: 12px;
+        transform: scale(0.9);
+        transform-origin: top right;
     }
-    
-    .lang-btn {
-        padding: 5px 10px !important;
-        font-size: 0.75em !important;
-    }
+    .lang-btn { padding: 5px 10px; font-size: 0.75em; }
 }
 
-/* Компьютер */
-@media (min-width: 
-</style>
+/* ===== PRINT OPTIMIZATION ===== */
+@media print {
+    #theme-toggle, .lang-switcher { display: none !important; }
+    body {
+        background: white;
+        color: black;
+        padding: 0;
+        margin: 0;
+        max-width: none;
+    }
+    .resume-card {
+        box-shadow: none;
+        padding: 20px;
+        border-radius: 0;
+    }
+    a { text-decoration: none; color: inherit; }
+    .contact-bar, .metrics-grid, .summary {
+        background: white !important;
+        border: 1px solid #e5e7eb;
+    }
+}
