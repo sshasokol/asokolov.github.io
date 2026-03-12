@@ -238,5 +238,22 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 // ===== ПЕЧАТЬ: скрыть кнопку темы =====
 window.onbeforeprint = () => { toggle.style.display = 'none'; };
 </script>
+<button id="theme-toggle" aria-label="Переключить тему">🌙</button>
+<script>
+// Тёмная тема
+const toggle = document.getElementById('theme-toggle');
+if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+toggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+});
+// Анимация при скролле
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+// Печать
+window.onbeforeprint = () => { if(toggle) toggle.style.display = 'none'; };
+</script>
 </body>
 </html>
