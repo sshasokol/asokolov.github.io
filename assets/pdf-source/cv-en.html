@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alexandr Sokolov CV</title>
+    <style>
+        @page { size: A4; margin: 10mm; }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            color: #111827;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 9.4px;
+            line-height: 1.32;
+        }
+        h1, h2, h3, p { margin: 0; }
+        h1 { font-size: 22px; line-height: 1.05; }
+        h2 {
+            margin: 9px 0 4px;
+            padding-bottom: 2px;
+            border-bottom: 1px solid #cbd5e1;
+            color: #0f766e;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+        h3 { font-size: 10px; }
+        ul { margin: 3px 0 0; padding-left: 14px; }
+        li { margin-bottom: 2px; }
+        .top {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 12px;
+            align-items: start;
+            margin-bottom: 8px;
+        }
+        .title { margin-top: 2px; color: #334155; font-size: 11px; font-weight: 700; }
+        .summary { margin-top: 5px; max-width: 520px; color: #374151; }
+        .contacts { text-align: right; color: #374151; }
+        .contacts a { color: #0f766e; text-decoration: none; }
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            margin: 7px 0 8px;
+        }
+        .metric {
+            padding: 5px;
+            border: 1px solid #dbe3ee;
+            border-radius: 5px;
+            background: #f8fafc;
+            text-align: center;
+        }
+        .metric strong { display: block; font-size: 12px; }
+        .row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 8px;
+            align-items: baseline;
+        }
+        .meta { color: #475569; font-weight: 700; }
+        .date { color: #0f766e; font-weight: 700; white-space: nowrap; }
+        .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+        .tag {
+            padding: 2px 5px;
+            border: 1px solid #dbe3ee;
+            border-radius: 999px;
+            background: #f8fafc;
+            color: #334155;
+        }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .job { margin-bottom: 6px; }
+    </style>
+</head>
+<body>
+    <section class="top">
+        <div>
+            <h1>Alexandr Sokolov</h1>
+            <p class="title">Data / BI Analyst · Data Quality · Master Data Management</p>
+            <p class="summary">Data / BI Analyst with 3+ years in FMCG and IT projects. I help business teams turn scattered operational data into reliable reporting, recurring checks, and documented processes. Strong in Power BI, SQL/Python data checks, Excel/VBA automation, SAP ERP context, and master data quality.</p>
+        </div>
+        <div class="contacts">
+            <p>St. Petersburg · Remote / relocation-friendly</p>
+            <p><a href="mailto:rimobob@gmail.com">rimobob@gmail.com</a></p>
+            <p><a href="https://t.me/sshasokol">t.me/sshasokol</a> · +7 931 310 95 29</p>
+            <p><a href="https://sshasokol.github.io/en/">sshasokol.github.io/en/</a></p>
+        </div>
+    </section>
+
+    <section class="metrics">
+        <div class="metric"><strong>3+ yrs</strong>FMCG and IT</div>
+        <div class="metric"><strong>+25%</strong>master data accuracy</div>
+        <div class="metric"><strong>-30%</strong>reporting cycle time</div>
+        <div class="metric"><strong>50+</strong>BI users supported</div>
+    </section>
+
+    <h2>Experience</h2>
+    <section class="job">
+        <div class="row">
+            <div><h3>Senior Master Data & Data Management Specialist</h3><p class="meta">LLC X-Tech, subsidiary of LLC UBH</p></div>
+            <p class="date">2024 - Present</p>
+        </div>
+        <ul>
+            <li>Improved master data accuracy by 25% through restructuring and automated audit routines.</li>
+            <li>Automated recurring data and reporting processes with Python and VBA, saving about 15 hours/month.</li>
+            <li>Contributed to Local MDM and SAP ERP integration as a domain expert: process descriptions, requirements, BRD materials, presentations, approvals, and communication with business users.</li>
+            <li>Supported and trained 50+ BI users, helping reduce incidents caused by data misinterpretation.</li>
+        </ul>
+    </section>
+
+    <section class="job">
+        <div class="row">
+            <div><h3>BI Analyst</h3><p class="meta">LLC UBH, Heineken structure</p></div>
+            <p class="date">2022 - 2024</p>
+        </div>
+        <ul>
+            <li>Built 5 Power BI dashboards from scratch for commercial, marketing, and logistics teams.</li>
+            <li>Reduced reporting preparation time by 30% with Python scripts and improved ETL routines.</li>
+            <li>Participated in BI stack migration, validating data correctness across models and DWH layers.</li>
+            <li>Conducted UAT for new data models before production release, aligning outputs with business requirements.</li>
+        </ul>
+    </section>
+
+    <section class="job">
+        <div class="row">
+            <div><h3>Backend Developer</h3><p class="meta">EdTech platform, short-term part-time / freelance project</p></div>
+            <p class="date">2026</p>
+        </div>
+        <ul>
+            <li>Worked with Node.js, NestJS, REST API, PostgreSQL, Git/GitHub, and GitHub Issues.</li>
+            <li>Handled product and technical tasks from requirements analysis to implementation, testing, and code review participation.</li>
+            <li>Worked with PostgreSQL data structures and SQL queries, gaining hands-on experience with modular NestJS architecture.</li>
+        </ul>
+    </section>
+
+    <div class="columns">
+        <section>
+            <h2>Selected Work Examples</h2>
+            <ul>
+                <li><strong>Master data audit automation:</strong> recurring checks for data consistency, reducing manual validation by about 15 hours/month.</li>
+                <li><strong>Commercial BI dashboards:</strong> Power BI reports for commercial, marketing, and logistics teams from requirements to release.</li>
+                <li><strong>BI migration validation:</strong> comparison of model outputs, DWH layers, and business expectations before production release.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Core Skills</h2>
+            <ul>
+                <li>Power BI dashboards, DAX, Power Query, Excel validation</li>
+                <li>SQL queries, joins, subqueries, window functions</li>
+                <li>Python/Pandas for reporting automation and data checks</li>
+                <li>Data Quality, MDM, SAP ERP context, OpenMetadata</li>
+                <li>Requirements gathering, BRD materials, UAT, stakeholder communication</li>
+            </ul>
+        </section>
+    </div>
+
+    <h2>Technology</h2>
+    <div class="tags">
+        <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Excel</span><span class="tag">VBA</span><span class="tag">PostgreSQL</span><span class="tag">Node.js</span><span class="tag">NestJS</span><span class="tag">REST API</span><span class="tag">SAP ERP</span><span class="tag">OpenMetadata</span><span class="tag">MDM</span><span class="tag">Git/GitHub</span>
+    </div>
+
+    <h2>Education</h2>
+    <div class="row">
+        <div><h3>Saint Petersburg State University of Economics</h3><p class="meta">Specialist degree, Economic and Legal Support of Economic Security</p></div>
+        <p class="date">2017 - 2022</p>
+    </div>
+    <p>Additional development: Data Governance fundamentals, MDM workshops, Advanced Power BI visualization, SQL for data analysis, Python reporting automation.</p>
+</body>
+</html>

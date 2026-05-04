@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Александр Соколов CV</title>
+    <style>
+        @page { size: A4; margin: 10mm; }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            color: #111827;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 9.1px;
+            line-height: 1.28;
+        }
+        h1, h2, h3, p { margin: 0; }
+        h1 { font-size: 21px; line-height: 1.05; }
+        h2 {
+            margin: 8px 0 4px;
+            padding-bottom: 2px;
+            border-bottom: 1px solid #cbd5e1;
+            color: #0f766e;
+            font-size: 10.5px;
+            text-transform: uppercase;
+        }
+        h3 { font-size: 9.8px; }
+        ul { margin: 3px 0 0; padding-left: 14px; }
+        li { margin-bottom: 2px; }
+        .top {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 12px;
+            align-items: start;
+            margin-bottom: 8px;
+        }
+        .title { margin-top: 2px; color: #334155; font-size: 10.5px; font-weight: 700; }
+        .summary { margin-top: 5px; max-width: 520px; color: #374151; }
+        .contacts { text-align: right; color: #374151; }
+        .contacts a { color: #0f766e; text-decoration: none; }
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            margin: 7px 0 8px;
+        }
+        .metric {
+            padding: 5px;
+            border: 1px solid #dbe3ee;
+            border-radius: 5px;
+            background: #f8fafc;
+            text-align: center;
+        }
+        .metric strong { display: block; font-size: 11.5px; }
+        .row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 8px;
+            align-items: baseline;
+        }
+        .meta { color: #475569; font-weight: 700; }
+        .date { color: #0f766e; font-weight: 700; white-space: nowrap; }
+        .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+        .tag {
+            padding: 2px 5px;
+            border: 1px solid #dbe3ee;
+            border-radius: 999px;
+            background: #f8fafc;
+            color: #334155;
+        }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .job { margin-bottom: 6px; }
+    </style>
+</head>
+<body>
+    <section class="top">
+        <div>
+            <h1>Александр Соколов</h1>
+            <p class="title">Data / BI Analyst · Data Quality · Master Data Management</p>
+            <p class="summary">Data / BI Analyst с опытом 3+ года в FMCG и IT-проектах. Помогаю бизнес-командам превращать разрозненные операционные данные в понятную отчетность, регулярные проверки и задокументированные процессы. Основной стек: Power BI, SQL/Python, Excel/VBA, SAP ERP-контекст и качество мастер-данных.</p>
+        </div>
+        <div class="contacts">
+            <p>Санкт-Петербург · Remote / relocation-friendly</p>
+            <p><a href="mailto:rimobob@gmail.com">rimobob@gmail.com</a></p>
+            <p><a href="https://t.me/sshasokol">t.me/sshasokol</a> · +7 931 310 95 29</p>
+            <p><a href="https://sshasokol.github.io/">sshasokol.github.io</a></p>
+        </div>
+    </section>
+
+    <section class="metrics">
+        <div class="metric"><strong>3+ года</strong>FMCG и IT</div>
+        <div class="metric"><strong>+25%</strong>точность мастер-данных</div>
+        <div class="metric"><strong>-30%</strong>цикл подготовки отчетности</div>
+        <div class="metric"><strong>50+</strong>пользователей BI</div>
+    </section>
+
+    <h2>Опыт</h2>
+    <section class="job">
+        <div class="row">
+            <div><h3>Senior Master Data & Data Management Specialist</h3><p class="meta">ООО ИКС-Тех, дочерняя компания ООО ОПХ</p></div>
+            <p class="date">2024 - сейчас</p>
+        </div>
+        <ul>
+            <li>Повысил точность мастер-данных на 25% через реструктуризацию и автоматизированные аудиты.</li>
+            <li>Автоматизировал регулярные процессы с Python и VBA, сократив около 15 часов/мес. ручной работы.</li>
+            <li>Участвовал в интеграции Local MDM и SAP ERP как предметный эксперт: описание процессов, сбор требований, BRD, презентации, согласования и коммуникация с бизнес-пользователями.</li>
+            <li>Поддерживал и обучал 50+ пользователей BI, снижая количество инцидентов из-за неверной интерпретации данных.</li>
+        </ul>
+    </section>
+
+    <section class="job">
+        <div class="row">
+            <div><h3>BI Analyst</h3><p class="meta">ООО ОПХ, структура Heineken</p></div>
+            <p class="date">2022 - 2024</p>
+        </div>
+        <ul>
+            <li>Разработал 5 Power BI dashboards с нуля для коммерции, маркетинга и логистики.</li>
+            <li>Сократил время подготовки отчетности на 30% с помощью Python-скриптов и улучшенных ETL-процессов.</li>
+            <li>Участвовал в миграции BI-стека, проверял корректность данных в моделях и DWH-слоях.</li>
+            <li>Проводил UAT новых моделей данных перед production-релизом, сверяя результат с бизнес-требованиями.</li>
+        </ul>
+    </section>
+
+    <section class="job">
+        <div class="row">
+            <div><h3>Backend Developer</h3><p class="meta">EdTech-платформа, short-term part-time / freelance project</p></div>
+            <p class="date">2026</p>
+        </div>
+        <ul>
+            <li>Работал с backend-частью платформы на Node.js/NestJS: REST API, PostgreSQL, Git/GitHub, GitHub Issues.</li>
+            <li>Закрывал продуктовые и технические задачи от анализа требований до реализации, тестирования и участия в code review.</li>
+            <li>Работал со структурой данных и SQL-запросами PostgreSQL, получил практический опыт модульной архитектуры NestJS.</li>
+        </ul>
+    </section>
+
+    <div class="columns">
+        <section>
+            <h2>Примеры кейсов</h2>
+            <ul>
+                <li><strong>Аудит мастер-данных:</strong> регулярные проверки консистентности, сокращение ручной валидации примерно на 15 часов/мес.</li>
+                <li><strong>BI dashboards:</strong> отчеты Power BI для коммерции, маркетинга и логистики от требований до релиза.</li>
+                <li><strong>Миграция BI-стека:</strong> сверка моделей, DWH-слоев и бизнес-ожиданий перед production-релизом.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Ключевые навыки</h2>
+            <ul>
+                <li>Power BI dashboards, DAX, Power Query, Excel-валидация</li>
+                <li>SQL-запросы, joins, подзапросы, оконные функции</li>
+                <li>Python/Pandas для автоматизации отчетности и проверок</li>
+                <li>Data Quality, MDM, SAP ERP-контекст, OpenMetadata</li>
+                <li>Сбор требований, BRD, UAT, коммуникация с бизнесом</li>
+            </ul>
+        </section>
+    </div>
+
+    <h2>Технологии</h2>
+    <div class="tags">
+        <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Excel</span><span class="tag">VBA</span><span class="tag">PostgreSQL</span><span class="tag">Node.js</span><span class="tag">NestJS</span><span class="tag">REST API</span><span class="tag">SAP ERP</span><span class="tag">OpenMetadata</span><span class="tag">MDM</span><span class="tag">Git/GitHub</span>
+    </div>
+
+    <h2>Образование</h2>
+    <div class="row">
+        <div><h3>Санкт-Петербургский государственный экономический университет</h3><p class="meta">Специалитет, экономико-правовое обеспечение экономической безопасности</p></div>
+        <p class="date">2017 - 2022</p>
+    </div>
+    <p>Дополнительное развитие: Data Governance fundamentals, MDM workshops, Advanced Power BI visualization, SQL for data analysis, Python reporting automation.</p>
+</body>
+</html>
