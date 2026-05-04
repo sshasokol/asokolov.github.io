@@ -92,6 +92,7 @@ button:focus-visible {
 }
 
 .theme-toggle,
+.action-btn,
 .lang-btn {
     min-height: 38px;
     border: 1px solid var(--line);
@@ -114,6 +115,23 @@ body.dark-mode .lang-btn {
 
 .theme-toggle {
     width: 38px;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 13px;
+}
+
+.theme-toggle svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin: auto;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
 }
 
 .lang-switcher {
@@ -215,7 +233,7 @@ body.dark-mode .lang-switcher {
 
 .contact-bar {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 10px;
     padding: 0 58px 42px;
 }
@@ -234,6 +252,11 @@ body.dark-mode .lang-switcher {
     font-size: 0.92rem;
     font-weight: 700;
     text-align: center;
+}
+
+.contact-button {
+    cursor: pointer;
+    font: inherit;
 }
 
 .contact-item.primary {
@@ -566,6 +589,7 @@ body.dark-mode .lang-switcher {
     }
 
     .top-actions,
+    .contact-button,
     .avatar,
     .availability {
         display: none !important;
@@ -586,6 +610,24 @@ body.dark-mode .lang-switcher {
     .contact-bar,
     .metrics-grid {
         grid-template-columns: repeat(4, 1fr);
+    }
+
+    .contact-bar {
+        padding-bottom: 18px;
+    }
+
+    .summary,
+    .skill-card,
+    .focus-card,
+    .contact-item,
+    .tech-tag {
+        background: white !important;
+        border-color: #d8dee8 !important;
+    }
+
+    .fade-in {
+        opacity: 1 !important;
+        transform: none !important;
     }
 
     .section {

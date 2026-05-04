@@ -9,6 +9,7 @@ Personal CV website for international Data / BI Analyst job search.
 - `index_en.html` - redirect to the English version
 - `assets/css/style.css` - shared styles
 - `assets/js/main.js` - theme switcher and scroll reveal
+- `assets/pdf/` - downloadable PDF versions
 
 ## How to Open
 
