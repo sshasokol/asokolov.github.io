@@ -1,259 +1,214 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Александр Соколов — Data Analyst & Data Governance Specialist</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<meta name="description" content="Data Analyst с опытом работы в FMCG и IT-проектах. Специализируюсь на повышении качества данных, автоматизации и BI.">
-<meta property="og:title" content="Александр Соколов | Data Analyst">
-<meta property="og:description" content="BI, Python, Data Governance. Превращаю данные в решения.">
-<meta property="og:image" content="https://sshasokol.github.io/assets/images/profile%20photo.jpg">
-<meta property="og:url" content="https://sshasokol.github.io">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="author" content="Александр Соколов">
-<meta name="keywords" content="Data Analyst, BI, Data Governance, Python, SQL, Power BI">
-<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/style.css">
-<style>
-/* ===== ДОБАВКИ ДЛЯ АНИМАЦИИ И ТЕМЫ (можно перенести в style.css) ===== */
-html { scroll-behavior: smooth; }
-
-/* Анимация появления */
-.fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
-
-/* Метрики */
-.metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
-  margin: 24px 0 32px;
-  padding: 16px;
-  background: #f8fafc;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
-}
-.metric {
-  text-align: center;
-  padding: 8px;
-}
-.metric-value {
-  display: block;
-  font-size: 1.4em;
-  font-weight: 700;
-  color: #111827;
-}
-.metric-label {
-  font-size: 0.85em;
-  color: #6b7280;
-}
-
-/* Кнопка темы */
-#theme-toggle {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  z-index: 1000;
-  padding: 8px 12px;
-  background: #e5e7eb;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1.1em;
-  transition: background 0.2s;
-}
-#theme-toggle:hover { background: #d1d5db; }
-
-/* Улучшенные ховеры */
-.skill-card, .job { transition: transform 0.2s, box-shadow 0.2s; }
-.skill-card:hover, .job:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
-
-/* Доступность: фокус */
-a:focus, button:focus { outline: 2px solid #3b82f6; outline-offset: 2px; }
-
-/* Печать */
-@media print {
-  #theme-toggle, .lang-switcher { display: none !important; }
-  body { background: white; color: black; padding: 0; }
-  .resume-card { box-shadow: none; padding: 20px; }
-  a { text-decoration: none; color: inherit; }
-}
-
-/* Тёмная тема (базовые переопределения) */
-body.dark-mode { background: #111827; color: #f9fafb; }
-body.dark-mode .resume-card { background: #1f2937; }
-body.dark-mode .contact-bar, body.dark-mode .metrics-grid { background: #1f2937; border-color: #374151; }
-body.dark-mode .metric-value { color: #f9fafb; }
-body.dark-mode .metric-label { color: #d1d5db; }
-body.dark-mode .skill-card { background: #1f2937; border-top-color: #60a5fa; }
-body.dark-mode .job { border-bottom-color: #374151; }
-body.dark-mode .tech-tag { background: #374151; border-color: #4b5563; color: #f3f4f6; }
-body.dark-mode #theme-toggle { background: #374151; color: #f9fafb; }
-body.dark-mode #theme-toggle:hover { background: #4b5563; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Александр Соколов | Data / BI Analyst</title>
+    <meta name="description" content="Data / BI Analyst с опытом 3+ года в FMCG и IT: Power BI, SQL, Python, Data Quality, Data Governance и Master Data Management.">
+    <meta name="author" content="Александр Соколов">
+    <meta name="keywords" content="Data Analyst, BI Analyst, Power BI, SQL, Python, Data Quality, Data Governance, MDM, FMCG">
+    <meta property="og:title" content="Александр Соколов | Data / BI Analyst">
+    <meta property="og:description" content="Power BI, SQL, Python automation, Data Quality и Master Data Management.">
+    <meta property="og:url" content="https://sshasokol.github.io/">
+    <meta property="og:type" content="profile">
+    <meta name="twitter:card" content="summary">
+    <link rel="canonical" href="https://sshasokol.github.io/">
+    <link rel="alternate" hreflang="ru" href="https://sshasokol.github.io/">
+    <link rel="alternate" hreflang="en" href="https://sshasokol.github.io/en/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<!-- Кнопка темы -->
-<button id="theme-toggle" aria-label="Переключить тему">🌙</button>
+    <main class="page">
+        <article class="resume-card">
+            <div class="top-actions" aria-label="Управление страницей">
+                <nav class="lang-switcher" aria-label="Язык">
+                    <a class="lang-btn active" href="./" aria-current="page">RU</a>
+                    <a class="lang-btn" href="en/index.html">EN</a>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Переключить тему">☾</button>
+            </div>
 
-<div class="resume-card">
-<header class="header">
-<div class="header-text">
-<h1 class="name">Александр Соколов</h1>
-<h2 class="title">Data / BI Analyst - Data Quality & Governance</h2>
-<p class="tagline">Data Analyst с опытом работы в FMCG и IT-проектах (структура Heineken Russia). 
-       Специализируюсь на повышении качества данных, автоматизации аналитических процессов и поддержке управленческих решений. 
-       <br>Помогаю бизнесу сократить ручной труд, повышать надежность мастер-данных и ускорять принятие решений за счет BI, SQL и автоматизации</p>
-</div>
-<div class="header-photo">
-<img src="/assets/images/profile photo.jpg" alt="Александр Соколов" loading="lazy">
-</div>
-<div class="lang-switcher">
-    <a href="/" class="lang-btn active" aria-label="Русская версия">RU</a>
-    <a href="/en/" class="lang-btn" aria-label="English version">EN</a>
-</div>
+            <header class="hero">
+                <div>
+                    <p class="eyebrow">Открыт к международным remote-ролям</p>
+                    <h1 class="name">Александр Соколов</h1>
+                    <p class="title">Data / BI Analyst · Data Quality · Master Data Management</p>
+                    <p class="tagline">Помогаю бизнес-командам принимать решения на основе надежных данных: строю BI-отчетность, автоматизирую ручные процессы и повышаю качество мастер-данных. Сильная сторона - работа на стыке бизнеса и технической реализации.</p>
+                </div>
 
-<div class="contact-bar">
-<div class="contact-item"><span class="contact-icon">✈️</span><a href="https://t.me/sshasokol" target="_blank" class="contact-link">Telegram</a></div>
-<div class="contact-item"><span class="contact-icon">📧</span><a href="mailto:rimobob@gmail.com" class="contact-link">Email</a></div>
-<div class="contact-item"><span class="contact-icon">📱</span><a href="tel:+79313109529" class="contact-link">Телефон</a></div>
-<div class="contact-item"><span class="contact-icon">💼</span><span class="contact-text">Полная занятость</span></div>
-<div class="contact-item"><span class="contact-icon">🕐</span><span class="contact-text">Удалённо/гибрид</span></div>
-<div class="contact-item contact-item-city"><span class="contact-icon">📍</span><a href="https://yandex.ru/maps/2/saint-petersburg/" target="_blank" class="contact-link">Санкт-Петербург</a></div>
-<div class="contact-item contact-item-download"><span class="contact-icon">📄</span><a href="mailto:rimobob@gmail.com" class="contact-link">PDF по запросу</a></div>
-</div>
-</header>
+                <aside class="hero-aside" aria-label="Краткий профиль">
+                    <div class="avatar" aria-hidden="true">AS</div>
+                    <p class="availability">Санкт-Петербург. Интересны remote-роли и релокационные возможности в data-направлении.</p>
+                </aside>
+            </header>
 
-<!-- 🔥 НОВЫЙ БЛОК: Ключевые метрики (сразу видно ценность) -->
-<section class="metrics-grid fade-in">
-  <div class="metric"><span class="metric-value">+25%</span><span class="metric-label">точность данных</span></div>
-  <div class="metric"><span class="metric-value">-15ч/мес</span><span class="metric-label">рутины</span></div>
-  <div class="metric"><span class="metric-value">5</span><span class="metric-label">дашбордов</span></div>
-  <div class="metric"><span class="metric-value">50+</span><span class="metric-label">пользователей</span></div>
-</section>
+            <section class="contact-bar" aria-label="Контакты">
+                <a class="contact-item primary" href="mailto:rimobob@gmail.com">Email</a>
+                <a class="contact-item primary" href="https://t.me/sshasokol" target="_blank" rel="noreferrer">Telegram</a>
+                <a class="contact-item" href="tel:+79313109529">Телефон</a>
+                <span class="contact-item">Full-time · Remote</span>
+            </section>
 
-<section class="summary fade-in">
-<p><strong>Более 3 лет опыта</strong> в FMCG и IT (структура Heineken Russia). Специализируюсь на построении BI-отчетности, автоматизации процессов на Python и управлении мастер-данными. Нацелен на то, чтобы сделать данные доступными и понятными для бизнеса. Успешно работаю на стыке бизнес-запросов и технической реализации.</p>
-</section>
+            <section class="metrics-grid fade-in" aria-label="Ключевой результат">
+                <div class="metric"><span class="metric-value">3+ года</span><span class="metric-label">опыт в FMCG и IT</span></div>
+                <div class="metric"><span class="metric-value">+25%</span><span class="metric-label">точность мастер-данных</span></div>
+                <div class="metric"><span class="metric-value">-30%</span><span class="metric-label">время подготовки отчетности</span></div>
+                <div class="metric"><span class="metric-value">50+</span><span class="metric-label">пользователей BI</span></div>
+            </section>
 
-<h2 class="section-title fade-in">🚀 Ключевые компетенции</h2>
-<div class="skills-grid">
-<div class="skill-card fade-in"><h3>📊BI & Визуализация</h3><ul><li>Power BI, DAX, Power Query</li><li>Создание дашбордов с нуля</li><li>Pivot Tables, VBA</li></ul></div>
-<div class="skill-card fade-in"><h3>🐍Программирование</h3><ul><li>Python (Pandas, NumPy, Matplotlib/Seaborn)</li><li>Автоматизация отчетов и ETL</li><li>SQL (оконные функции, подзапросы)</li></ul></div>
-<div class="skill-card fade-in"><h3>🗄️Управление данными</h3><ul><li>Data Governance (OpenMetaData, LMDM)</li><li>Мастер-данные (MDM), MDS</li><li>Аудит и оптимизация данных</li></ul></div>
-<div class="skill-card fade-in"><h3>🔧Инструменты & ERP</h3><ul><li>SAP ERP, 1С</li><li>Git, Docker</li><li>Miro, Draw.io</li></ul></div>
-</div>
+            <div class="content">
+                <section class="section summary fade-in">
+                    <p><strong>Data / BI Analyst с опытом 3+ года</strong> в FMCG и IT-проектах в среде Heineken Russia. Работаю с Power BI, SQL, Python, Excel/VBA, SAP ERP и MDM-инструментами, чтобы улучшать качество отчетности, сокращать ручной труд и повышать надежность мастер-данных.</p>
+                    <p>Сейчас развиваю профиль под международные роли Data Analyst, BI Analyst, Data Quality Analyst и Master Data Analyst.</p>
+                </section>
 
-<h2 class="section-title fade-in">💼 Опыт работы</h2>
-<div class="job fade-in">
-<h3 class="job-title">Старший специалист по мастер-данным и управлению данными</h3>
-<p class="job-meta"><strong>ООО «ИКС-Тех» (Дочка ООО «ОПХ»)</strong> | 2024 — н.в.</p>
-<ul>
-<li>Повысил точность мастер-данных на <span class="highlight">25%</span> через реструктуризацию, внедрение автоматизированных аудитов.</li>
-<li>Автоматизировал процессы с помощью Python и VBA (<span class="highlight">-15 часов</span> ручной работы/месяц).</li>
-<li>Инициировал проект по интеграции Local MDM и SAP ERP, участвовал в роли эксперта.</li>
-<li>Осуществляю поддержку и обучение более 50-ти пользователей BI-инструментов, снизив количество инцидентов из-за непонимания данных.</li>
-</ul>
-</div>
-<div class="job fade-in">
-<h3 class="job-title">BI-аналитик</h3>
-<p class="job-meta"><strong>ООО «ОПХ» (в структуре Heineken)</strong> | 2022 — 2024</p>
-<ul>
-<li>Разработал <span class="highlight">5 ключевых дашбордов</span> в Power BI с нуля (для функций коммерции, маркетинга и логистики).</li>
-<li>Сократил время формирования отчетности на <span class="highlight">30%</span> с помощью python-скриптов и улучшенных ETL-процессов.</li>
-<li>Участвовал в миграции BI-системы на новый стэк - отвечал за корректность данных в моделях и DWH</li>
-<li>Проводил приемочное тестирование новых моделей данных, обеспечивая их соответствие бизнес-требованиям перед выходом в продакшн</li>
-</ul>
-</div>
+                <section class="section fade-in">
+                    <h2 class="section-title">Ключевые компетенции</h2>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <h3>BI и аналитика</h3>
+                            <ul>
+                                <li>Power BI dashboards, DAX, Power Query, Excel-аналитика</li>
+                                <li>Бизнес-метрики, пользовательская отчетность, UAT моделей данных</li>
+                                <li>Коммуникация с командами коммерции, маркетинга и логистики</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card">
+                            <h3>Автоматизация и data workflows</h3>
+                            <ul>
+                                <li>Python для регулярной отчетности и проверок данных</li>
+                                <li>Pandas, NumPy, Matplotlib, Seaborn, Jupyter</li>
+                                <li>SQL-запросы, joins, подзапросы, оконные функции</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card">
+                            <h3>Data Quality и MDM</h3>
+                            <ul>
+                                <li>Валидация мастер-данных, реструктуризация, аудит</li>
+                                <li>Data Governance, OpenMetadata, Local MDM, MDS</li>
+                                <li>Контекст интеграции SAP ERP и поддержка пользователей</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
 
-<h2 class="section-title fade-in">🎓 Образование</h2>
-<div class="job fade-in">
-<h3 class="job-title">Санкт-Петербургский Государственный Экономический Университет</h3>
-<p class="job-meta"><strong>Специалитет, Экономико-правовое обеспечение экономической безопасности</strong> | 2017 – 2022</p>
-<ul>
-<li>Углублённое изучение математического анализа, статистики и основ информационной безопасности.</li>
-<li>Прошел программу военной подготовки в Академии МТО им. Хрулева, получил звание Сержант.</li>
-</ul>
-</div>
+                <section class="section fade-in">
+                    <h2 class="section-title">Опыт</h2>
+                    <div class="job">
+                        <div class="job-head">
+                            <div>
+                                <h3 class="job-title">Senior Master Data & Data Management Specialist</h3>
+                                <p class="job-meta">ООО ИКС-Тех, дочерняя компания ООО ОПХ</p>
+                            </div>
+                            <p class="job-date">2024 - сейчас</p>
+                        </div>
+                        <ul>
+                            <li>Повысил точность мастер-данных на <span class="highlight">25%</span> через реструктуризацию и автоматизированные аудиты.</li>
+                            <li>Автоматизировал регулярные процессы с Python и VBA, сократив около <span class="highlight">15 часов/мес.</span> ручной работы.</li>
+                            <li>Инициировал проект интеграции Local MDM и SAP ERP, участвовал как предметный эксперт.</li>
+                            <li>Поддерживал и обучал <span class="highlight">50+ пользователей BI</span>, снижая количество инцидентов из-за неверной интерпретации данных.</li>
+                        </ul>
+                    </div>
 
-<h3 class="section-title fade-in" style="font-size: 1.4em; margin: 40px 0 20px 0; color: #010003;">📚 Дополнительное обучение</h3>
-<div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-<div class="skill-card fade-in" style="border-top-color: #8b5cf6;"><h3>Data Governance & MDM</h3><ul><li><strong>Интенсив «Основы Data Governance»</strong> (Data Quality Community, 2025)</li><li><strong>Серия воркшопов по Master Data Management</strong> (IT-сообщество СПб, 2024-2025)</li><li>Изучение фреймворков DAMA, практик внедрения OpenMetaData</li></ul></div>
-<div class="skill-card fade-in" style="border-top-color: #10b981;"><h3>Аналитика и BI</h3><ul><li><strong>Мастер-класс «Продвинутая визуализация в Power BI»</strong> (BI Professionals Meetup, 2023)</li><li><strong>Мини-курс «SQL для анализа данных»</strong> (Stepik, 2022)</li><li>Регулярное участие в конференциях Data Saturday (Москва, СПб)</li></ul></div>
-<div class="skill-card fade-in" style="border-top-color: #f59e0b;"><h3>Автоматизация и Python</h3><ul><li><strong>Практикум «Автоматизация отчётов на Python»</strong> (Хекслет, 2024)</li><li><strong>Серия вебинаров «Pandas для реальных задач»</strong> (OTUS, 2023)</li><li>Самостоятельное изучение архитектуры ETL-процессов и пайплайнов данных</li></ul></div>
-</div>
+                    <div class="job">
+                        <div class="job-head">
+                            <div>
+                                <h3 class="job-title">BI Analyst</h3>
+                                <p class="job-meta">ООО ОПХ, структура Heineken</p>
+                            </div>
+                            <p class="job-date">2022 - 2024</p>
+                        </div>
+                        <ul>
+                            <li>Разработал <span class="highlight">5 Power BI dashboards</span> с нуля для коммерции, маркетинга и логистики.</li>
+                            <li>Сократил время подготовки отчетности на <span class="highlight">30%</span> с помощью Python-скриптов и улучшенных ETL-процессов.</li>
+                            <li>Участвовал в миграции BI-стека и проверял корректность данных в моделях и DWH-слоях.</li>
+                            <li>Проводил UAT новых моделей данных перед production-релизом, сверяя результат с бизнес-требованиями.</li>
+                        </ul>
+                    </div>
+                </section>
 
-<h2 class="section-title fade-in">✨ Ценности & Подход к работе</h2>
-<div class="summary fade-in" style="background: #fef7ff; border-left-color: #8b5cf6; margin-top: 20px;">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
-<div><h4 style="color: #7c3aed; margin-bottom: 12px;">🏗️ Процессы как фундамент</h4><p style="color: #4b5563; font-size: 0.95em;">Ценю зрелые процессы: CI/CD для аналитики, версионирование, код-ревью, автоматическое тестирование. Без этого сложно масштабировать качество.</p></div>
-<div><h4 style="color: #7c3aed; margin-bottom: 12px;">🤝 Команда & Коммуникация</h4><p style="color: #4b5563; font-size: 0.95em;">Ищу среду, где поощряют инициативу, дают честный фидбек и ценят эмпатию. Работаю на стыке бизнеса и техники.</p></div>
-<div><h4 style="color: #7c3aed; margin-bottom: 12px;">📈 Data-Driven подход</h4><p style="color: #4b5563; font-size: 0.95em;">Верю, что данные должны быть доступны и понятны каждому в компании. Цель - превращение raw data в инсайты для управленческих решений.</p></div>
-</div>
-</div>
+                <section class="section fade-in">
+                    <h2 class="section-title">Целевые роли</h2>
+                    <div class="focus-grid">
+                        <div class="focus-card">
+                            <h3>Data Analyst</h3>
+                            <ul>
+                                <li>Reporting, SQL, Python, бизнес-метрики</li>
+                                <li>Инсайты для операционных команд</li>
+                            </ul>
+                        </div>
+                        <div class="focus-card">
+                            <h3>BI Analyst</h3>
+                            <ul>
+                                <li>Power BI dashboards и semantic models</li>
+                                <li>DAX, Power Query, поддержка пользователей</li>
+                            </ul>
+                        </div>
+                        <div class="focus-card">
+                            <h3>Data Quality / MDM Analyst</h3>
+                            <ul>
+                                <li>Проверки мастер-данных, аудит, governance</li>
+                                <li>SAP ERP и MDM-интеграционный контекст</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
 
-<h2 class="section-title fade-in">⚙️ Технологии в работе</h2>
-<div class="summary fade-in" style="background: #f0f9ff; margin-bottom: 30px;">
-<div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
-<span class="tech-tag">Power BI</span><span class="tech-tag">Python</span><span class="tech-tag">SQL</span><span class="tech-tag">Pandas</span><span class="tech-tag">DAX</span><span class="tech-tag">Excel</span><span class="tech-tag">Jupyter</span><span class="tech-tag">SAP ERP</span><span class="tech-tag">1C</span><span class="tech-tag">Git</span><span class="tech-tag">OpenMetaData</span><span class="tech-tag">MDM</span><span class="tech-tag">ETL</span><span class="tech-tag">DBeaver</span><span class="tech-tag">ProcessRunner</span>
-</div>
-</div>
+                <section class="section fade-in">
+                    <h2 class="section-title">Технологии</h2>
+                    <div class="tech-list" aria-label="Стек технологий">
+                        <span class="tech-tag">Power BI</span>
+                        <span class="tech-tag">DAX</span>
+                        <span class="tech-tag">Power Query</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">Excel</span>
+                        <span class="tech-tag">VBA</span>
+                        <span class="tech-tag">SAP ERP</span>
+                        <span class="tech-tag">OpenMetadata</span>
+                        <span class="tech-tag">MDM</span>
+                        <span class="tech-tag">DBeaver</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                </section>
 
-<h2 class="section-title fade-in">🌅 Вне работы</h2>
-<div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 40px;">
-<div class="skill-card fade-in" style="border-top-color: #ef4444;"><h3>🏔️ Активный отдых</h3><ul><li><strong>Экстремальные виды спорта:</strong> горные лыжи, эндуро, скейт</li><li>Походы и путешествия по природным локациям</li></ul></div>
-<div class="skill-card fade-in" style="border-top-color: #8b5cf6;"><h3>📚 Интересы</h3><ul><li><strong>Психология:</strong> поведенческая экономика, когнитивные науки</li><li><strong>История:</strong> анализ исторических процессов и событий</li></ul></div>
-<div class="skill-card fade-in" style="border-top-color: #10b981;"><h3>💡 Развитие</h3><ul><li><strong>Профессиональное:</strong> ежедневное чтение технических статей, изучение новых технологий в Data-сфере</li><li><strong>Личное:</strong> забота о животных, поддержание активного образа жизни</li></ul></div>
-</div>
+                <section class="section fade-in">
+                    <h2 class="section-title">Образование и развитие</h2>
+                    <div class="job">
+                        <div class="job-head">
+                            <div>
+                                <h3 class="job-title">Санкт-Петербургский государственный экономический университет</h3>
+                                <p class="job-meta">Специалитет, экономико-правовое обеспечение экономической безопасности</p>
+                            </div>
+                            <p class="job-date">2017 - 2022</p>
+                        </div>
+                        <ul>
+                            <li>Изучал математический анализ, статистику, экономику, право и основы информационной безопасности.</li>
+                            <li>Прошел программу военной подготовки в Академии МТО им. Хрулева, получил звание сержанта.</li>
+                        </ul>
+                    </div>
+                    <div class="tech-list">
+                        <span class="tech-tag">Data Governance fundamentals</span>
+                        <span class="tech-tag">MDM workshops</span>
+                        <span class="tech-tag">Advanced Power BI visualization</span>
+                        <span class="tech-tag">SQL for data analysis</span>
+                        <span class="tech-tag">Python reporting automation</span>
+                    </div>
+                </section>
 
-<footer class="fade-in">
-<p><strong>Связь:</strong> rimobob@gmail.com | Telegram: @sshasokol</p>
-<p>Полная версия резюме доступна по запросу</p>
-</footer>
-</div>
+                <footer class="footer">
+                    <p><strong>Связь:</strong> <a href="mailto:rimobob@gmail.com">rimobob@gmail.com</a> · <a href="https://t.me/sshasokol" target="_blank" rel="noreferrer">@sshasokol</a></p>
+                    <p>Полная версия резюме и детали проектов доступны по запросу.</p>
+                </footer>
+            </div>
+        </article>
+    </main>
 
-<script>
-// ===== ТЕМНАЯ ТЕМА =====
-const toggle = document.getElementById('theme-toggle');
-const body = document.body;
-if (localStorage.getItem('theme') === 'dark') body.classList.add('dark-mode');
-toggle.addEventListener('click', () => {
-  body.classList.toggle('dark-mode');
-  localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
-});
-
-// ===== АНИМАЦИЯ ПРИ СКРОЛЛЕ =====
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-// ===== ПЕЧАТЬ: скрыть кнопку темы =====
-window.onbeforeprint = () => { toggle.style.display = 'none'; };
-</script>
-<button id="theme-toggle" aria-label="Переключить тему">🌙</button>
-<script>
-// Тёмная тема
-const toggle = document.getElementById('theme-toggle');
-if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
-toggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-});
-// Анимация при скролле
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-// Печать
-window.onbeforeprint = () => { if(toggle) toggle.style.display = 'none'; };
-</script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
